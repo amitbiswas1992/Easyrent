@@ -1,6 +1,6 @@
 # README
 
-Easyrent Application 
+Getportfolio Application 
 
 > This is a ruby on rails application that allows users to create their own indivisual portfolio.
 
@@ -25,4 +25,5 @@ var blog = function(){
 
 system.log(blog());
 ```
+
 
