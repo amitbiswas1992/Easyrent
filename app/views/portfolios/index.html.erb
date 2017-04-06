@@ -32,11 +32,16 @@
   </div>
 </div>
 
+
+<%= link_to "create new item", new_portfolio_path%>
+
+
 <% @portfolio_item.each do |item| %>
 <p><%=item.title%></p>
 <p><%=item.subtitile%></p>
 <p><%=item.body%></p>
-<p><%=image_tag item.thumb_image%></p>
+<p><%=image_tag item.thumb_image  unless item.thumb_image.nil?%></p>
+<%= link_to "Edit", edit_portfolio_path(item.id)%>
 <% end %>
 
 
