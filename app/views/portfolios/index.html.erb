@@ -27,7 +27,7 @@
 
 <div class="jumbotron jumbotron-fluid ">
   <div class="container">
-    <h3 class="display-3">Portfoilo</h3>
+    <h3 class="display-3">PORTFOLIO</h3>
     <p class="lead"></p>
   </div>
 </div>
@@ -37,7 +37,7 @@
 
 
 <% @portfolio_item.each do |item| %>
-<p><%=item.title%></p>
+<p><%=link_to item.title ,portfolio_path(item.id)%></p>
 <p><%=item.subtitile%></p>
 <p><%=item.body%></p>
 <p><%=image_tag item.thumb_image  unless item.thumb_image.nil?%></p>
