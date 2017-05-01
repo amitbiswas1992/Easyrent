@@ -27,42 +27,22 @@
 
 <div class="jumbotron jumbotron-fluid ">
   <div class="container">
-    <h3 class="display-3">BLOG</h3>
+    <h3 class="display-3">PORTFOLIO</h3>
     <p class="lead"></p>
   </div>
 </div>
 
 
+<%= link_to "create new item", new_portfolio_path%>
 
 
+<% @portfolio_item.each do |item| %>
+<p><%=link_to item.title ,portfolio_show_path(item.id)%></p>
+<p><%=item.subtitile%></p>
+<p><%=item.body%></p>
+<p><%=image_tag item.thumb_image  unless item.thumb_image.nil?%></p>
+<%= link_to "Edit", edit_portfolio_path(item.id)%>
+<%= link_to "Delete portfolio item ", portfolio_path(item) , method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
-<p id="notice"><%= notice %></p>
 
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.body %></td>
-        <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Blog', new_blog_path %>

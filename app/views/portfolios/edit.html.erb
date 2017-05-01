@@ -27,42 +27,28 @@
 
 <div class="jumbotron jumbotron-fluid ">
   <div class="container">
-    <h3 class="display-3">BLOG</h3>
+    <h3 class="display-3">EDIT</h3>
     <p class="lead"></p>
   </div>
 </div>
 
+<%= form_for(@portfolio_item) do |f| %>
 
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+    <div class="field">
+    <%= f.label :subtitile %>
+    <%= f.text_field :subtitile %>
+  </div>
 
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
 
-
-<p id="notice"><%= notice %></p>
-
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.body %></td>
-        <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Blog', new_blog_path %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
